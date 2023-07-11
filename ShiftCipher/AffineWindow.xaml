@@ -1,4 +1,4 @@
-﻿<Window x:Class="ShiftCipher.MainWindow"
+﻿<Window x:Class="ShiftCipher.AffineWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:ShiftCipher"
         xmlns:vm="clr-namespace:ShiftCipher.ViewModel"
         mc:Ignorable="d"
-        Title="ENCRYPTION" Height="520" Width="800" ResizeMode="NoResize">
+        Title="ENCRYPTION" Height="550" Width="800" ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:MainViewModel/>
+        <vm:AffineViewModel/>
     </Window.DataContext>
     <StackPanel Margin="20,5,20,20">
-        <TextBlock Text="SHIFT CIPHER" FontSize="20" Margin="0,0,0,10"/>
+        <TextBlock Text="SHIT CIPHER + AFFINE CIPHER" FontSize="20" Margin="0,0,0,10"/>
         <TextBlock Text="Encrypt"/>
         <DockPanel  LastChildFill="True">
             <TextBox Text="{Binding Encrypt}"
@@ -32,6 +32,14 @@
             <TextBlock Text="Shift" Width="30"/>
             <TextBox Text="{Binding Shift}" Width="30"/>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <TextBlock Text="a" Width="30"/>
+            <TextBox Text="{Binding A}" Width="30"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <TextBlock Text="b" Width="30"/>
+            <TextBox Text="{Binding B}" Width="30"/>
+        </StackPanel>
         <TextBlock Text="Decrypt"/>
         <DockPanel  LastChildFill="True">
             <TextBox Text="{Binding Decrypt}"
@@ -47,6 +55,5 @@
                         />
             <Button Content="Decrypt" Command="{Binding DecryptStringCommand}" Width="80" Height="30"/>
         </DockPanel>
-        <Button Content="Affine Cipher" Width="100" HorizontalAlignment="Left" Margin="0,15,0,0" Command="{Binding SpawnAffineWindowCommand}"/>
     </StackPanel>
 </Window>
