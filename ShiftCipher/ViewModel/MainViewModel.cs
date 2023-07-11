@@ -31,17 +31,7 @@ namespace ShiftCipher.ViewModel
                 MessageBox.Show("Please enter an valid number for shift");
                 return;
             }
-            Encrypted = "";
-            foreach (char c in encrypt)
-            {
-                if (c == ' ')
-                    Encrypted += ' ';
-                else
-                {
-                    var temp = (c + i - 65) % 26 + 65;
-                    Encrypted += (char)temp;
-                }
-            }
+            Encrypted = Algorithm.ShiftCipher.Encrypt(Encrypt, i);
         }
         [RelayCommand]
         private void DecryptString()
@@ -52,17 +42,14 @@ namespace ShiftCipher.ViewModel
                 MessageBox.Show("Please enter an valid number for shift");
                 return;
             }
-            Decrypted = "";
-            foreach (char c in Decrypt)
-            {
-                if (c == ' ')
-                    Decrypted += ' ';
-                else
-                {
-                    var temp = (c - i - 65 + 26) % 26 + 65;
-                    Decrypted += (char)temp;
-                }
-            }
+            Decrypted = Algorithm.ShiftCipher.Decrypt(Decrypt, i);
+        }
+
+        [RelayCommand]
+        private void SpawnAffineWindow()
+        {
+            new AffineWindow().Show();
+            
         }
     }
 }
