@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+// The affine cipher is a type of substitution cipher that uses a mathematical function to encrypt and decrypt messages.
+// It is a combination of the Caesar cipher and the affine transformation.
+// In the affine cipher, each letter of the plaintext is mapped to its numeric equivalent, typically using the ASCII values.
+// The encryption function takes the form:
+// E(x) = (ax + b) mod m
 
 namespace ShiftCipher.Algorithm
 {

@@ -16,8 +16,6 @@ namespace ShiftCipher.ViewModel
         [ObservableProperty]
         private string decrypt = "";
         [ObservableProperty]
-        private string shift = "1";
-        [ObservableProperty]
         private string a = "1";
         [ObservableProperty]
         private string b = "1";
@@ -29,12 +27,7 @@ namespace ShiftCipher.ViewModel
         [RelayCommand]
         private void EncryptString()
         {
-            int i,A,B;
-            if (!int.TryParse(shift, out i))
-            {
-                MessageBox.Show("Please enter an valid number for shift");
-                return;
-            }
+            int A,B;
             if (!int.TryParse(a, out A))
             {
                 MessageBox.Show("Please enter an valid number for a");
@@ -45,19 +38,13 @@ namespace ShiftCipher.ViewModel
                 MessageBox.Show("Please enter an valid number for b");
                 return;
             }
-            var temp = Algorithm.ShiftCipher.Encrypt(Encrypt, i);
 
-            Encrypted = Algorithm.AffineCipher.Encrypt(temp, A, B);
+            Encrypted = Algorithm.AffineCipher.Encrypt(Encrypt, A, B);
         }
         [RelayCommand]
         private void DecryptString()
         {
-            int i, A, B;
-            if (!int.TryParse(shift, out i))
-            {
-                MessageBox.Show("Please enter an valid number for shift");
-                return;
-            }
+            int A, B;
             if (!int.TryParse(a, out A))
             {
                 MessageBox.Show("Please enter an valid number for a");
@@ -68,8 +55,7 @@ namespace ShiftCipher.ViewModel
                 MessageBox.Show("Please enter an valid number for b");
                 return;
             }
-            var temp = Algorithm.AffineCipher.Decrypt(Decrypt, A, B);
-            Decrypted = Algorithm.ShiftCipher.Decrypt(temp, i); 
+            Decrypted = Algorithm.AffineCipher.Decrypt(Decrypt, A, B);
         }
     }
 }
