@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:ShiftCipher"
         xmlns:vm="clr-namespace:ShiftCipher.ViewModel"
         mc:Ignorable="d"
-        Title="ENCRYPTION" Height="550" Width="800" ResizeMode="NoResize">
+        Title="ENCRYPTION" Height="530" Width="800" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:AffineViewModel/>
     </Window.DataContext>
     <StackPanel Margin="20,5,20,20">
-        <TextBlock Text="SHIT CIPHER + AFFINE CIPHER" FontSize="20" Margin="0,0,0,10"/>
+        <TextBlock Text="AFFINE CIPHER" FontSize="20" Margin="0,0,0,10"/>
         <TextBlock Text="Encrypt"/>
         <DockPanel  LastChildFill="True">
             <TextBox Text="{Binding Encrypt}"
@@ -28,10 +28,6 @@
                         />
             <Button Content="Encrypt" Command="{Binding EncryptStringCommand}" Width="80" Height="30"/>
         </DockPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <TextBlock Text="Shift" Width="30"/>
-            <TextBox Text="{Binding Shift}" Width="30"/>
-        </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
             <TextBlock Text="a" Width="30"/>
             <TextBox Text="{Binding A}" Width="30"/>
